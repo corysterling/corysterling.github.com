@@ -1,0 +1,249 @@
+
+/* @group main */
+
+body {
+	font: 8pt "Arial", sans-serif;
+	line-height: 2em;
+}
+
+#container {
+	width: 700px;
+	position:absolute;
+	top: 50px;
+	left: 50%;
+	margin-top: 0px;
+	margin-left: -350px;
+	margin-right: auto;
+}
+
+#header {
+	height: 50px;
+	overflow: hidden;
+	background: url(../images/header.png) top no-repeat;
+	padding: 20px 20px 0;
+}
+
+#header h1 {
+	font-size: 20px;
+	display: none;
+}
+
+#footer {
+	height: 70px;
+	overflow: hidden;
+	text-align: center;
+	background: url(../images/footer.png) no-repeat;
+	padding-top: 20px;
+	padding-bottom: 10px;
+	padding-left: 40px;
+	padding-right: 40px;
+}
+
+#footer p {
+	line-height: 1.3em;
+}
+/* @end */
+
+
+/* @group misc./typography */
+a {
+	color: #999;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #777;
+	background-color: #eee;
+}
+/* @end */
+
+
+
+/* @group tabs */
+ul.tabs {
+	margin-bottom: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	list-style: none;
+	height: 40px; /*--Set height of tabs--*/
+	width: 100%;
+	background-image: url(../images/tabs.png);
+	position: relative;
+}
+
+ul.tabs li {
+	float: left;
+	margin-top: 4px;
+	padding: 0px;
+	height: 32px;
+	line-height: 1.2em;
+	margin-bottom: -1px; /*--Pull the list item down 1px--*/
+	overflow: hidden;
+	position: relative;
+	/*background-color: #f4f4f4;*/
+}
+
+ul.tabs li a {
+	text-decoration: none;
+	line-height: 3.25em;
+	color: #000;
+	display: block;
+	padding: 0 20px;
+	outline: none;
+	
+	font-size: 1.2em;
+	font-weight: normal;
+}
+
+ul.tabs li a:hover, ul.tabs li a.hover {
+	background: #ddd;
+}
+
+html ul.tabs li.active, html ul.tabs li.active a:hover  { /*--Makes sure that the active tab does not listen to the hover properties--*/
+	background: #e9e9e9;
+	/*border-bottom: 1px solid #fff; --Makes the active tab look like it's connected with its content--*/
+}
+
+.tab_container {
+	overflow: hidden;
+	clear: both;
+	width: 100%;
+	min-height: 200px;
+	position: relative;
+	background: url(../images/body.png) repeat-y;
+}
+
+.tab_content {
+	font-size: 1.2em;
+	padding-top: 5px;
+	padding-left: 40px;
+	padding-right: 40px;
+	padding-bottom: 20px;
+	position: relative;
+}
+
+/* @end */
+
+
+/* @group photos */
+ul#gallery {
+	padding: 0px 10px 10px 10px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align:center; 
+}
+
+#gallery li {
+	float: left;
+	padding: 7px;
+}
+
+#gallery li:hover, #gallery li.hover {
+	background-color: #eee;
+}
+
+img.thumbnail {
+	width: 70px;
+	height: 100px;
+	padding: 4px;
+	background-color: #eee;
+}
+
+img.video_thumbnail {
+	width: 200px;
+	padding: 4px;
+	background-color: #eee;
+}
+
+#home {
+	background: url(../images/gallery/coverbw.jpg) no-repeat center 0;
+	height: 500px;
+	margin: -5px 20px -100px;
+}
+
+/* @end */
+
+/* @group video */
+
+ul#videogallery {
+	padding: 0px 10px 10px 10px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align:center; 
+}
+
+#videogallery li {
+	float: left;
+	padding: 7px;
+	margin: 7px;
+	width: 200px;
+}
+
+/* @end */
+
+
+
+
+/* @group audio */
+.section {
+	margin-bottom: 20px;
+}
+
+.section h2 {
+	font-size: 13pt;
+	line-height: 1.55em;
+	border-bottom: 1px solid #ddd;
+	border-top: 1px solid #ddd;
+	margin-bottom: 10px;
+}
+
+li.song {
+	font-size: 10pt;
+	color: #111;
+	margin-top: 10px;
+}
+
+/* @end */
+
+
+/* @group gigs list */
+
+table#gigs_list {
+	margin: 0px 10px 10px 10px;
+	width: 95%;
+}
+
+tr.first_line td{
+	padding-top: 20px;
+}
+
+tr.first_line.first td {
+	padding-top: 10px;
+}
+
+
+tr.second_line td {
+	border-bottom: 1px solid #ddd;
+}
+
+td.date, td.time {
+	text-align: right;
+	padding-right: 20px;
+	color: #444;
+	font-weight: bold;
+	width: 150px;
+}
+
+td.venue {
+	font-weight: bold;
+}
+
+td.venue a {
+	color: black;
+}
+
+td.details {
+	font-style: italic;
+}
+
+/* @end */

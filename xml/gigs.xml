@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<engagements xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="engagements.xsd">
+
+	
+
+	<gig>
+		<venue>Parilla Steakhouse (137th and Broadway)</venue>
+		<details>Cory Sterling B3 Trio w/ Christian N. and Dustin Kaufman</details>
+		<date>Sun May 15</date>
+		<time>7:00-11:00pm</time>
+	</gig>
+
+
+	
+</engagements>

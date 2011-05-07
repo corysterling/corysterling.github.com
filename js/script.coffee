@@ -1,12 +1,7 @@
 $(document).ready ->
 
-  # hide all content
   $('.tab_content').hide()
-
-  # activate first tab
   $('ul.tabs li:first').addClass('active').show()
-
-  # show first tab content
   $('.tab_content:first').show()
 
   if !$.browser.msie
@@ -18,16 +13,10 @@ $(document).ready ->
 
   # on click event
   $('ul.tabs li').click ->
-    # deactivate all tabs
     $('ul.tabs li').removeClass 'active'
-
-    # add 'active' to selected tab
     $(this).addClass 'active'
-    
-    # hide all tab content
     $('.tab_content').hide()
 
-    # find href attribute value to id tab + content
     active_tab = $(this).find('a').attr 'href'
 
     if $.browser.msie

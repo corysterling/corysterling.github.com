@@ -2,21 +2,18 @@
 
 <engagements xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="engagements.xsd">
 
-	
+  <gig>
+    <venue>Parilla Steakhouse (137th and Broadway)</venue>
+    <details>Cory Sterling B3 Trio w/ Christian N. and Dustin Kaufman</details>
+    <date>Sun May 15</date>
+    <time>7:00-11:00pm</time>
+  </gig>
 
-	<gig>
-		<venue>Parilla Steakhouse (137th and Broadway)</venue>
-		<details>Cory Sterling B3 Trio w/ Christian N. and Dustin Kaufman</details>
-		<date>Sun May 15</date>
-		<time>7:00-11:00pm</time>
-	</gig>
+  <gig>
+    <venue>Miles Cafe (212 E. 52nd St. 3Fl. Between 2nd/3rd Ave.)</venue>
+    <details>w/ Chris Davidson Band</details>
+    <date>Sat Jul 16</date>
+    <time>8:30-10:00pm</time>
+  </gig>
 
-	<gig>
-		<venue>Miles Cafe (212 E. 52nd St. 3Fl. Between 2nd/3rd Ave.)</venue>
-		<details>w/ Chris Davidson Band</details>
-		<date>Sat Jul 16</date>
-		<time>8:30-10:00pm</time>
-	</gig>
-
-	
 </engagements>

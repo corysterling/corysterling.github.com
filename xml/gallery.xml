@@ -2,20 +2,16 @@
 
 <gallery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="gallery.xsd">
 
-	<image>
-		<source>./images/gallery/daddys.jpg</source>
-		
-	</image>
-	
-	<image>
-		<source>./images/gallery/jimmymaks.jpg</source>
-		
-	</image>
-	
-	<image>
-		<source>./images/gallery/studio.jpg</source>
-		
-	</image>
-
+  <image>
+    <source>./images/gallery/daddys.jpg</source>
+  </image>
+  
+  <image>
+    <source>./images/gallery/jimmymaks.jpg</source>
+  </image>
+  
+  <image>
+    <source>./images/gallery/studio.jpg</source>
+  </image>
 
 </gallery>

@@ -4,11 +4,12 @@
 <xs:element name="gallery">
   <xs:complexType>
     <xs:sequence>
-      <xs:element name="image" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="media" minOccurs="0" maxOccurs="unbounded">
         <xs:complexType>
           <xs:sequence>
             <xs:element name="source" type="xs:anyURI"/>
             <xs:element name="title" type="xs:string"/>
+						<xs:element name="author" type="xs:string"/>
           </xs:sequence>
         </xs:complexType>
       </xs:element>

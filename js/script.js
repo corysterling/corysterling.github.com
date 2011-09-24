@@ -1,5 +1,5 @@
 (function() {
-  var get_data, handle_gallery_xml, handle_gigs_xml, setup_gallery, xml_fix_for_ie;
+  var get_data, gig_item, sound_item, xml_fix_for_ie;
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
   $(document).ready(function() {
     $('.tab_content').hide();
@@ -10,10 +10,6 @@
         speed: 600
       });
     }
-    $('a.fancyvideo').fancybox({
-      overlayShow: true,
-      hideOnContentClick: false
-    });
     return $('ul.tabs li').click(function() {
       var active_tab;
       $('ul.tabs li').removeClass('active');
@@ -25,59 +21,41 @@
       } else {
         $(active_tab).fadeIn();
       }
-      get_data('#gallery', './xml/gallery.xml', handle_gallery_xml);
-      get_data('#gigs_list', './xml/gigs.xml', handle_gigs_xml);
+      get_data('#audio', 'media', './xml/sounds.xml', sound_item);
+      get_data('#gigs_list', 'gig', './xml/gigs.xml', gig_item);
       return false;
     });
   });
-  get_data = function(id, url, success) {
-    $(id).empty();
+  get_data = function(container_id, element, url, item_callback) {
+    var callback;
+    $(container_id).empty();
+    callback = function(xml) {
+      var new_xml;
+      new_xml = xml_fix_for_ie(xml);
+      return $(new_xml).find(element).each(function() {
+        return $(container_id).append(item_callback(this));
+      });
+    };
     return $.ajax({
       type: 'GET',
       url: url,
       dataType: $.browser.msie ? 'text' : 'xml',
-      success: success
+      success: callback
     });
   };
-  handle_gallery_xml = function(xml) {
-    var new_xml;
-    $('#gallery').empty();
-    new_xml = xml_fix_for_ie(xml);
-    $(new_xml).find('image').each(function() {
-      var get_prop, source, title;
-      get_prop = __bind(function(name) {
-        return $(this).find(name).text();
-      }, this);
-      source = get_prop('source');
-      title = get_prop('title');
-      return $('#gallery').prepend("      <li>        <a href='" + source + "' title='" + title + "'>          <img src='" + source + "' alt='" + title + "' class='thumbnail' />        </a>      </li>    ");
-    });
-    return setup_gallery();
+  sound_item = function(xml) {
+    var get_prop;
+    get_prop = __bind(function(name) {
+      return $(xml).find(name).text();
+    }, this);
+    return "    <li class='song'>      <p>&ldquo;" + (get_prop('title')) + "&rdquo; (" + (get_prop('author')) + ")</p>       <object type='application/x-shockwave-flash' data='./flash/player.swf' id='audioplayer1' height='24' width='290'>        <param name='movie' value='./flash/player.swf' />        <param name='FlashVars' value='playerID=1&amp;soundFile=" + (get_prop('source')) + "' />        <param name='quality' value='high' />        <param name='menu' value='false' />        <param name='wmode' value='transparent' />      </object>    </li>  ";
   };
-  handle_gigs_xml = function(xml) {
-    var new_xml;
-    $('#gigs_list').empty();
-    new_xml = xml_fix_for_ie(xml);
-    $(new_xml).find('gig').each(function() {
-      var get_prop;
-      get_prop = __bind(function(name) {
-        return $(this).find(name).text();
-      }, this);
-      return $('#gigs_list').append("      <tr class='first_line'>        <td class='date'>" + (get_prop('date')) + "</td>        <td class='venu'>" + (get_prop('venue')) + "</td>      </tr>      <tr class='second_line'>        <td class='time'>" + (get_prop('time')) + "</td>        <td class='details'>" + (get_prop('details')) + "</td>      </tr>    ");
-    });
-    return $('#gigs_list tr:first').addClass("first");
-  };
-  setup_gallery = function() {
-    $('#gallery li a').fancybox({
-      zoomSpeedIn: 0,
-      zoomSpeedOut: 0
-    });
-    $('#gallery, #fancy_overlay').disableTextSelect();
-    if (!$.browser.msie) {
-      return $('#gallery li').blend({
-        speed: 600
-      });
-    }
+  gig_item = function(xml) {
+    var get_prop;
+    get_prop = __bind(function(name) {
+      return $(xml).find(name).text();
+    }, this);
+    return "    <tr class='first_line'>      <td class='date'>" + (get_prop('date')) + "</td>      <td class='venu'>" + (get_prop('venue')) + "</td>    </tr>    <tr class='second_line'>      <td class='time'>" + (get_prop('time')) + "</td>      <td class='details'>" + (get_prop('details')) + "</td>    </tr>  ";
   };
   xml_fix_for_ie = function(xml) {
     var fuck;

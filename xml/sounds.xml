@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<gallery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="gallery.xsd">
+
+  <media>
+		<title>Phoenix</title>
+		<author>Sterling</author>
+    <source>./audio/01_phoenix_1.mp3</source>
+  </media>
+  
+	<media>
+		<title>Burning Bridges</title>
+		<author>Sterling</author>
+		<source>./audio/Burning_Bridges.mp3</source>
+  </media>
+  
+	<media>
+		<title>My Shining Hour</title>
+		<author>Arlen</author>
+		<source>./audio/My_Shining_Hour.mp3</source>
+  </media>
+
+</gallery>

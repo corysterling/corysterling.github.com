@@ -7,10 +7,6 @@ $(document).ready ->
   if !$.browser.msie
     $('ul.tabs li a').blend speed:600
 
-  $('a.fancyvideo').fancybox
-    overlayShow: yes
-    hideOnContentClick: no
-
   # on click event
   $('ul.tabs li').click ->
     $('ul.tabs li').removeClass 'active'
@@ -23,75 +19,58 @@ $(document).ready ->
       $(active_tab).show()
     else
       $(active_tab).fadeIn()
-    
 
-    get_data '#gallery', './xml/gallery.xml', handle_gallery_xml
-    get_data '#gigs_list', './xml/gigs.xml', handle_gigs_xml
+
+    get_data '#audio', 'media', './xml/sounds.xml', sound_item
+    get_data '#gigs_list', 'gig', './xml/gigs.xml', gig_item
 
     false
 
 
-get_data = (id, url, success) ->
-  $(id).empty()
+get_data = (container_id, element, url, item_callback) ->
+  $(container_id).empty()
+
+  callback = (xml) ->
+    new_xml = xml_fix_for_ie xml
+    $(new_xml).find(element).each ->
+      $(container_id).append (item_callback this)
+
   $.ajax
     type: 'GET'
     url: url
     dataType: if $.browser.msie then 'text' else 'xml'
-    success: success
+    success: callback
 
 
-handle_gallery_xml = (xml) ->
-  $('#gallery').empty()
-
-  new_xml = xml_fix_for_ie xml
-  $(new_xml).find('image').each ->
-    get_prop = (name) => $(this).find(name).text()
-    source = get_prop 'source'
-    title = get_prop 'title'
-
-    $('#gallery').prepend "
-      <li>
-        <a href='#{source}' title='#{title}'>
-          <img src='#{source}' alt='#{title}' class='thumbnail' />
-        </a>
-      </li>
-    "
-
-  setup_gallery()
-
-handle_gigs_xml = (xml) ->
-  $('#gigs_list').empty()
-  
-  new_xml = xml_fix_for_ie xml
-  $(new_xml).find('gig').each ->
-    get_prop = (name) => $(this).find(name).text()
-    
-    $('#gigs_list').append "
-      <tr class='first_line'>
-        <td class='date'>#{get_prop 'date'}</td>
-        <td class='venu'>#{get_prop 'venue'}</td>
-      </tr>
-
-      <tr class='second_line'>
-        <td class='time'>#{get_prop 'time'}</td>
-        <td class='details'>#{get_prop 'details'}</td>
-      </tr>
-    "
-
-  $('#gigs_list tr:first').addClass("first");
+sound_item = (xml) ->
+  get_prop = (name) => $(xml).find(name).text()
+  "
+    <li class='song'>
+      <p>&ldquo;#{get_prop 'title'}&rdquo; (#{get_prop 'author'})</p>
+       <object type='application/x-shockwave-flash' data='./flash/player.swf' id='audioplayer1' height='24' width='290'>
+        <param name='movie' value='./flash/player.swf' />
+        <param name='FlashVars' value='playerID=1&amp;soundFile=#{get_prop 'source'}' />
+        <param name='quality' value='high' />
+        <param name='menu' value='false' />
+        <param name='wmode' value='transparent' />
+      </object>
+    </li>
+  "
 
 
-setup_gallery = ->
-  $('#gallery li a').fancybox
-    zoomSpeedIn: 0
-    zoomSpeedOut: 0
+gig_item = (xml) ->
+  get_prop = (name) => $(xml).find(name).text()
+  "
+    <tr class='first_line'>
+      <td class='date'>#{get_prop 'date'}</td>
+      <td class='venu'>#{get_prop 'venue'}</td>
+    </tr>
 
-  # disable selection
-  $('#gallery, #fancy_overlay').disableTextSelect()
-  
-  # enable blending
-  if !$.browser.msie
-    $('#gallery li').blend speed: 600
+    <tr class='second_line'>
+      <td class='time'>#{get_prop 'time'}</td>
+      <td class='details'>#{get_prop 'details'}</td>
+    </tr>
+  "
 
 xml_fix_for_ie = (xml) ->
   if $.browser.msie

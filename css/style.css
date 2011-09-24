@@ -30,13 +30,32 @@ body {
 #footer {
 	height: 70px;
 	overflow: hidden;
-	text-align: center;
 	background: url(../images/footer.png) no-repeat;
 	padding-top: 20px;
 	padding-bottom: 10px;
 	padding-left: 40px;
 	padding-right: 40px;
 }
+
+#footer .left {
+    text-align: left;
+    float: left; 
+    width: 33%;
+}
+
+#footer .right {
+    text-align: right;
+    float: right; 
+    width: 33%;
+}
+
+#footer .center {
+	text-align: center;
+    margin: 0 auto;
+    width: 33%;
+}
+
+
 
 #footer p {
 	line-height: 1.3em;

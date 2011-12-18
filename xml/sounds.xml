@@ -9,15 +9,15 @@
   </media>
 
   <media>
-    <title>Burning Bridges</title>
-    <author>Sterling</author>
-    <source>./audio/Burning_Bridges.mp3</source>
-  </media>
-
-  <media>
     <title>My Shining Hour</title>
     <author>Arlen</author>
-    <source>./audio/My_Shining_Hour.mp3</source>
+    <source>http://api.cld.me/3y3z1v3u3L011r2A1z2X/download/my%20shining%20hour.mp3</source>
+  </media>
+  
+    <media>
+    <title>Phoenix</title>
+    <author>Sterling</author>
+    <source>./audio/01_phoenix_1.mp3</source>
   </media>
 
 </gallery>

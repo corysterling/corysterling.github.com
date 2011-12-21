@@ -60,7 +60,7 @@
   xml_fix_for_ie = function(xml) {
     var fuck;
     if ($.browser.msie) {
-      fuck = new ActiveXObect('Microsoft.XMLDOM');
+      fuck = new ActiveXObject('Microsoft.XMLDOM');
       fuck.loadXML(xml);
       xml = fuck;
     }

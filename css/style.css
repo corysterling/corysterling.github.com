@@ -5,11 +5,6 @@ body {
 	line-height: 2em;
 }
 
-#bio {
-	font: 8pt "Arial", sans-serif;
-	line-height: 2em;
-	font-style: italic;
-}
 
 #container {
 	width: 700px;

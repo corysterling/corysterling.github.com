@@ -229,7 +229,7 @@ li.song {
 /* @group gigs list */
 
 table#gigs_list {
-	margin: 0px 10px 10px 10px;
+
 
 }
 
@@ -247,7 +247,7 @@ tr.second_line td {
 }
 
 td.date, td.time {
-	text-align: right;
+	text-align: left;
 	padding-right: 20px;
 	color: #444;
 	font-weight: bold;

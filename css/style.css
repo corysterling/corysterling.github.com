@@ -234,7 +234,7 @@ table#gigs_list {
 }
 
 tr.first_line td {
-	padding-bottom: 20px;
+	padding-top: 20px;
 }
 
 tr.first_line.first td {

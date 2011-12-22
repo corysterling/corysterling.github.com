@@ -234,7 +234,7 @@ table#gigs_list {
 }
 
 tr.first_line td {
-	padding-top: 20px;
+	padding-top: 0px;
 }
 
 tr.first_line.first td {
@@ -244,6 +244,7 @@ tr.first_line.first td {
 
 tr.second_line td {
 	border-bottom: 1px solid #ddd;
+	padding-bottom: 20px;
 }
 
 td.date, td.time {

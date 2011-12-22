@@ -211,10 +211,10 @@ ul#videogallery {
 
 .section h2 {
 	font-size: 13pt;
-	line-height: 1.55em;
-	border-bottom: 1px solid #ddd;
-	border-top: 1px solid #ddd;
 	margin-bottom: 10px;
+	color: #444;
+	font-weight: bold;
+}
 }
 
 li.song {
